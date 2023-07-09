@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+// import Button from './components/Board/Button/ButtonBoard.js';
+import React from 'react';
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
+import {Header} from './components/Header/Header.jsx';
+import {Footer} from './components/Footer/Footer.jsx';
+import { Board } from './components/Board/Board.jsx';
+import { CardInner } from './components/Board/CardInner/CardInner.jsx';
+import TaskContextProvider from './tasks/TaskContext.js';
 import './App.css';
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Board/>
+    },
+    {
+        path: "/tasks/:cardId",
+        element: <CardInner/>
+    }
+    ])
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TaskContextProvider>
+        <Header />
+        <main>
+            <RouterProvider router={router} />
+        </main>
+        <Footer />
+      </TaskContextProvider>
     </div>
   );
 }

@@ -1,0 +1,35 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #0067A3;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer-wrapper {
+    width: 100%;
+    max-width: 1235px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+}
+
+.counters {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tasks {
+    margin: auto 20px;
+}
+
+@media only screen and (max-width : 800px) {
+    .footer {      
+        display: none;
+    }
+    }
